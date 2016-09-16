@@ -1,0 +1,36 @@
+/* Mise en scène sur les points de vie */
+
+@keyframes semiHearts {
+    from {
+        opacity: 0.5;
+    }
+
+    to {
+        opacity: 0.8;
+    }
+}
+
+.semi-hearts {
+    animation-duration: 0.5s;
+    animation-name: semiHearts;
+    animation-iteration-count: infinite;
+    cursor: pointer;
+}
+
+.semi-hearts + text,
+.semi-hearts + text + text {
+    text-shadow: 2px 2px #d4d4d4;
+    visibility: hidden;
+}
+
+.semi-hearts:hover:not(:target) + text {
+    visibility: visible;
+}
+
+#kiss-princess:target {
+    animation-iteration-count: 0;
+    opacity: 1;
+}
+#kiss-princess:target + text + text {
+    visibility: visible;
+}

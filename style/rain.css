@@ -1,0 +1,32 @@
+/* Mise en scène de la pluie */
+
+/*Déplacement de la pluie */
+@keyframes moveRain {
+    from {
+        transform: translate(0, 0);
+    }
+
+    to {
+        transform: translate(-50%, 100%);
+    }
+}
+@keyframes moveRain2 {
+    from {
+        transform: translate(25%, 0);
+    }
+
+    to {
+        transform: translate(-25%, 100%);
+    }
+}
+
+.rain {
+    animation-duration: 0.5s;
+    animation-name: moveRain;
+    animation-iteration-count: infinite;
+}
+
+.rain + .rain {
+    animation-name: moveRain2;
+    animation-delay: 0.25s;
+}

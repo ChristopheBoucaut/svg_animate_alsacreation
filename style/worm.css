@@ -1,0 +1,10 @@
+/* Mise en scène du ver */
+
+#worm > text {
+    text-shadow: 2px 2px #555555;
+    visibility: hidden;
+}
+
+#worm:hover > text {
+    visibility: visible;
+}
