@@ -3,15 +3,17 @@
 @keyframes semiHearts {
     from {
         opacity: 0.5;
+        stroke: none;
     }
 
     to {
-        opacity: 0.8;
+        opacity: 1;
+        stroke: #fbb03b;
     }
 }
 
 .semi-hearts {
-    animation-duration: 0.5s;
+    animation-duration: 1s;
     animation-name: semiHearts;
     animation-iteration-count: infinite;
     cursor: pointer;
@@ -23,14 +25,24 @@
     visibility: hidden;
 }
 
-.semi-hearts:hover:not(:target) + text {
+#kiss-princess:not(:target) + svg .semi-hearts:hover + text {
     visibility: visible;
 }
 
-#kiss-princess:target {
+#kiss-princess:target + svg .semi-hearts {
     animation-iteration-count: 0;
     opacity: 1;
 }
-#kiss-princess:target + text + text {
+#kiss-princess:target + svg .semi-hearts + text + text {
     visibility: visible;
+}
+
+#add-heart {
+    visibility: hidden;
+    transition: transform 2s;
+}
+
+#kiss-princess:target + svg #add-heart {
+    visibility: visible;
+    transform: translate(-432px, -545px);
 }
