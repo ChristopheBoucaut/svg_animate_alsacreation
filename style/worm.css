@@ -1,6 +1,6 @@
 /* Mise en scène du ver */
 
-#worm > text {
+#worm > text.text-hover {
     visibility: hidden;
 }
 
@@ -8,7 +8,7 @@
     text-shadow: 2px 2px #555555;
 }
 
-#worm:hover > text {
+#worm:hover > text.text-hover {
     visibility: visible;
 }
 
@@ -37,13 +37,14 @@
     transition-delay: 0.5s;
 }
 
-#cosplay-abo:not(:target) + span + svg #worm > text > tspan + tspan {
+#cosplay-abo:not(:target) + span + svg #worm > text.text-hover > tspan.text-abo {
     display: none;
 }
-#cosplay-abo:target + span + svg #worm > text > tspan {
+#cosplay-abo:target + span + svg #worm > text.text-hover > tspan,
+#saiyan:target + span + span + svg #worm > text.text-hover > tspan {
     display: none;
 }
-#cosplay-abo:target + span + svg #worm > text > tspan + tspan {
+#cosplay-abo:target + span + svg #worm > text.text-hover > tspan.text-abo {
     display: inline;
 }
 #cosplay-abo:target + span + svg #worm .part-worm {
@@ -51,4 +52,99 @@
 }
 #cosplay-abo:target + span + svg #worm .part-worm + .part-worm {
     fill: #f7da8c;
+}
+
+@keyframes saiyan {
+    from {
+        stroke: #e6d207;
+        stroke-width: 100;
+    }
+
+    to {
+        stroke: #FBB03B;
+        stroke-width: 200;
+    }
+}
+
+#saiyan-worm {
+    visibility: hidden;
+}
+
+#saiyan:target + span + span + svg #saiyan-worm {
+    animation-duration: 0.5s;
+    animation-name: saiyan;
+    animation-iteration-count: infinite;
+    visibility: visible;
+}
+
+#saiyan:target + span + span + svg #worm .action {
+    display: none;
+}
+
+#kamehameha-load,
+#kamehameha-run {
+    visibility: hidden;
+}
+
+#saiyan:target + span + span + svg #kamehameha-load {
+    visibility: visible;
+    transition: r 2.5s;
+    r: 30;
+}
+
+#score {
+    transform: translate(875px, 49.722px);
+}
+#score tspan + tspan {
+    display: none;
+}
+#saiyan:target + span + span + svg #score tspan {
+    display: none;
+}
+
+#saiyan:target + span + span + svg #score {
+    transition: transform 2s;
+    transform: translate(700px, 100px);
+}
+
+#saiyan:target + span + span + svg #score tspan + tspan {
+    display: inline;
+}
+
+#saiyan:target + span + span + svg #load-energy {
+    fill: #FBB03B;
+    stroke: #FBB03B;
+    transition: fill 2s;
+}
+#saiyan:target + span + span + svg #load-energy + path {
+    display: none;
+}
+
+#saiyan:target + span + span + svg #kamehameha-run {
+    visibility: visible;
+    transition-delay: 2s;
+}
+
+svg #worm #text-saiyan,
+svg #worm #text-saiyan tspan {
+    visibility: hidden;
+}
+
+#saiyan:target + span + span + svg #worm #text-saiyan,
+#saiyan:target + span + span + svg #worm #text-saiyan tspan {
+    transition: visibility 0.5s;
+    visibility: visible;
+}
+
+#saiyan:target + span + span + svg #worm #text-saiyan tspan:nth-child(2) {
+    transition-delay: 0.5s;
+}
+#saiyan:target + span + span + svg #worm #text-saiyan tspan:nth-child(3) {
+    transition-delay: 1s;
+}
+#saiyan:target + span + span + svg #worm #text-saiyan tspan:nth-child(4) {
+    transition-delay: 1.5s;
+}
+#saiyan:target + span + span + svg #worm #text-saiyan tspan:nth-child(5) {
+    transition-delay: 2s;
 }
