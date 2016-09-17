@@ -1,0 +1,27 @@
+/* Mise en scène du kiwi */
+
+@keyframes eat {
+    from {
+
+    }
+
+    50% {
+        transform: translate(300px, 20px);
+    }
+
+    to {
+        transform: translate(1000px, 0px);
+    }
+}
+
+#kiwi-move:target + span + span + span + svg #kiwi {
+    animation-duration: 5s;
+    animation-name: eat;
+    animation-fill-mode: forwards;
+}
+
+#kiwi-move:target + span + span + span + svg #worm {
+    visibility: hidden;
+    transition: visibility;
+    transition-delay: 2.5s;
+}
